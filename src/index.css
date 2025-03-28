@@ -1,0 +1,111 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 13%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 67%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 18%;
+    --input: 217 32% 18%;
+    --ring: 210 100% 67%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .glass-morphism {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
+  }
+  
+  .neo-blur {
+    @apply backdrop-blur-2xl bg-black/40 border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
+  }
+  
+  .glowing-text {
+    animation: glow-animation 8s infinite;
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+  
+  .color-changing-text {
+    animation: color-change 10s infinite alternate;
+  }
+
+  @keyframes color-change {
+    0% { color: #9b87f5; }
+    20% { color: #8B5CF6; }
+    40% { color: #D946EF; }
+    60% { color: #F97316; }
+    80% { color: #0EA5E9; }
+    100% { color: #1EAEDB; }
+  }
+  
+  @keyframes glow-animation {
+    0% { text-shadow: 0 0 10px #9b87f5, 0 0 20px #9b87f5, 0 0 30px #9b87f5; }
+    20% { text-shadow: 0 0 10px #8B5CF6, 0 0 20px #8B5CF6, 0 0 30px #8B5CF6; }
+    40% { text-shadow: 0 0 10px #D946EF, 0 0 20px #D946EF, 0 0 30px #D946EF; }
+    60% { text-shadow: 0 0 10px #F97316, 0 0 20px #F97316, 0 0 30px #F97316; }
+    80% { text-shadow: 0 0 10px #0EA5E9, 0 0 20px #0EA5E9, 0 0 30px #0EA5E9; }
+    100% { text-shadow: 0 0 10px #1EAEDB, 0 0 20px #1EAEDB, 0 0 30px #1EAEDB; }
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .page-transition-enter {
+    @apply animate-fade-in;
+  }
+  
+  .page-transition-exit {
+    @apply animate-fade-out;
+  }
+}
